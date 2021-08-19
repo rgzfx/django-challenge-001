@@ -71,7 +71,9 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
 DATABASES = {"default": env.db("DATABASE_URL", default="postgis://test_user:qwer1234@127.0.0.1:5432/jungledevs")}
+
 
 
 # AUTHENTICATION

@@ -17,6 +17,7 @@ from jungledevs.articles.models import Article, Category
 
 
 class BaseAdminArticleView(object):
+
     queryset = Article.objects.all().order_by("id")
     serializer_class = AdminArticlesSerializer
     permission_classes = (IsAdminUser,)
@@ -56,6 +57,7 @@ class ArticleDetailView(RetrieveAPIView):
     permission_classes = (AllowAny,)
     queryset = Article.objects.all().order_by("id")
 
+
     def get_serializer_class(self):
         if self.request.user.is_authenticated:
             return LoggedSerializer
@@ -69,3 +71,4 @@ class ArticleSearchView(ListAPIView):
 
     def get_queryset(self):
         return Article.objects.filter(category__name__icontains=self.request.query_params.get("category")).order_by("id")
+

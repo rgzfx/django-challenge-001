@@ -22,4 +22,4 @@ urlpatterns = [
         RetrieveUpdateDestroyCategoryView.as_view(),
         name="update-destroy-category",
     ),
-]
+
